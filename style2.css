@@ -1,0 +1,196 @@
+/* Variáveis para facilitar a manutenção (opcional) */
+:root {
+    --cor-primaria: #011438;
+    --cor-secundaria: #003ca3;
+    --cor-fundo: #ffffff;
+    --cor-texto: #000000;
+    --cor-texto-destaque: #007bff;
+    --sombra-caixa: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --bordas-arredondadas: 8px;
+}
+
+body {
+    font-size: 100%;
+    background: linear-gradient(68.15deg, var(--cor-primaria) 16.62%, var(--cor-secundaria) 85.61%);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins'; /* Exemplo de fonte */
+}
+
+/* Estilo para o container que centraliza o conteúdo */
+.titulo {
+    text-align: center;
+    margin-bottom: 48px;
+    color: #ffffff;
+    border-top: 0.1px solid #ffffff52;
+    padding: 20px; /* Adicionado padding para espaçamento interno */
+}
+
+/* Títulos e elementos centrais */
+.titulo-analise,
+.titulo-jogos,
+.chatgpt {
+    margin: 0 auto;
+}
+
+.titulo-jogos {
+    color: var(--cor-texto);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.titulo-analise {
+    font-size: 0.8em;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--cor-texto);
+}
+
+.chatgpt {
+    font-size: 1.2em; /* Tamanho de fonte ajustado */
+    color: #ffffff; /* Certifica-se de que o texto esteja visível no fundo */
+    margin: 0;
+}
+
+.box {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid var(--cor-texto);
+    border-radius: var(--bordas-arredondadas);
+    background-color: var(--cor-fundo);
+    box-shadow: var(--sombra-caixa);
+    text-align: left;
+}
+
+/* Estilo para as caixas de conteúdo */
+.conteudo {
+    margin: 25px auto;
+    max-width: 35%;
+    padding: 10px;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-texto);
+    border-radius: var(--bordas-arredondadas);
+    text-align: center;
+    box-shadow: var(--sombra-caixa);
+}
+
+.conteudo h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #0f0f0f;
+}
+
+.box-imagem {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.gpt {
+    max-width: 45px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.rodape {
+    padding: 32px;
+    border-top: 0.4px solid #ff0000;
+}
+
+.rodape-imagem {
+    height: 48px;
+    display: block;
+    margin: 0 auto;
+}
+
+.IA {
+    font-size: 9px;
+    color: #000000f5;
+}
+
+.texto-destaque {
+    background-color: var(--cor-fundo);
+    border-left: 4px solid var(--cor-texto-destaque);
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 0.7em; /* Tamanho de fonte ajustado */
+    line-height: 1.6;
+    color: var(--cor-texto);
+}
+
+.texto-destaque strong {
+    color: var(--cor-texto-destaque);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .interface {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .titulo {
+        text-align: center;
+    }
+
+    .box, .conteudo {
+        padding: 15px;
+        max-width: 100%; /* Garantir largura total em dispositivos menores */
+    }
+
+    .conteudo h3 {
+        font-size: 1.5rem;
+    }
+
+    .conteudo p {
+        font-size: 0.9rem;
+    }
+
+    .conteudo img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .interface {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .titulo {
+        padding: 10px;
+    }
+
+    .titulo h2 {
+        font-size: 1.5rem;
+    }
+
+    .conteudo h3 {
+        font-size: 1.2rem;
+    }
+
+    .conteudo p {
+        font-size: 0.8rem;
+    }
+
+    .rodape {
+        padding: 15px;
+    }
+
+    .conteudo img {
+        max-width: 100%;
+    }
+
+    .cabecalho-imagem {
+        display: none; /* Esconder a imagem do cabeçalho em telas pequenas */
+    }
+}

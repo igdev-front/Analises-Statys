@@ -1,0 +1,211 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+/* Background degradê */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #011438, #003ca3);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilos do header e navbar */
+header {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo do header */
+    align-items: center;
+    padding: 10px 20px; /* Reduz o padding para deixar o header mais fino */
+    background: linear-gradient(to right, #011438, #003ca3); /* Degradê no fundo do header */
+    position: relative;
+    height: auto; /* Ajusta a altura automaticamente com base no padding */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza logo e nav horizontalmente */
+    gap: 20px; /* Espaço entre logo e nav */
+    width: 100%;
+    max-width: 1200px;
+}
+
+.logo {
+    flex-shrink: 0; /* Impede que a logo encolha */
+}
+
+.logo img {
+    height: 60px; /* Define altura da logo */
+    margin-right: 250px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar .nav-list li {
+    position: relative;
+}
+
+.navbar .nav-list a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Efeito de transição para o menu dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.185);
+    list-style: none;
+    padding: 10px;
+    top: 30px;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px); /* Levemente deslocado para cima */
+    width: 245px;
+}
+
+.dropdown-menu li {
+    margin: 15px 0;
+}
+
+.dropdown-menu a {
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* Mostrar o menu dropdown com efeito */
+.navbar .nav-list .dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1; /* Visível */
+    transform: translateY(0); /* Reposiciona no lugar */
+}
+
+/* Botão de menu para mobile */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Estilos do main content */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 20px;
+    text-align: center; /* Centraliza o texto */
+    gap: 20px; /* Espaço entre o texto e a imagem */
+}
+
+.content {
+    max-width: 60%; /* Define largura máxima do conteúdo */
+}
+
+.content h1, .content h2, .content p {
+    margin-bottom: 10px; /* Espaçamento entre os elementos de texto */
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+p {
+    font-weight: 300;
+}
+.content img {
+    max-width: 300px; /* Largura máxima da imagem */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Estilos do footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar .nav-list {
+        flex-direction: column;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+    }
+
+    .navbar .nav-list.active {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background-color: transparent;
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .dropdown-menu a {
+        color: #fff;
+        padding: 5px 10px;
+    }
+
+    .navbar .nav-list li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+    }
+
+    /* Ajusta layout para dispositivos móveis */
+    main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .content img {
+        max-width: 100%;
+        margin: 0; /* Remove a margem esquerda */
+    }
+}
