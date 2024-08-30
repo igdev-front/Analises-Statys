@@ -1,0 +1,209 @@
+/* Estilo geral para o body e html */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1e3a8a, #1d4ed8); /* Gradiente do fundo */
+}
+
+/* Estilo para o header */
+header {
+    background: linear-gradient(to right, #1e3a8a, #1d4ed8);
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra suave ao header */
+}
+
+header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo dentro do header */
+    flex-wrap: wrap; /* Permite que o conteúdo se ajuste em telas menores */
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-right: auto; /* Alinha o logo à esquerda */
+}
+
+nav {
+    flex-grow: 1; /* Permite que o nav ocupe o espaço restante */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centraliza os itens de navegação */
+    flex-wrap: wrap; /* Permite que os itens de navegação se ajustem em telas menores */
+}
+
+nav ul li {
+    margin: 0 1rem; /* Espaçamento horizontal entre os itens */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o conteúdo principal */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 70px); /* Ajuste a altura para acomodar o header */
+    text-align: center;
+    padding: 0 1rem; /* Adiciona padding lateral em telas menores */
+}
+
+/* Estilo para a caixa do iframe */
+.iframe-container {
+    background-color: #fff; /* Cor de fundo da caixa */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ao redor da caixa */
+    margin-bottom: 1rem; /* Espaçamento abaixo da caixa */
+    width: 100%; /* Faz a caixa ocupar toda a largura disponível */
+    max-width: 800px; /* Largura máxima da caixa */
+}
+
+/* Estilo para o iframe */
+iframe {
+    width: 1080px;  /* Faz o iframe se ajustar à largura da caixa */
+    height: 720px; /* Altura do iframe */
+    border: 2px solid #007BFF; /* Adiciona uma borda azul de 5px ao redor do iframe */
+    border-radius: 10px; /* Arredonda os cantos da borda */
+}
+
+/* Estilo para o botão */
+a.button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a.button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries para diferentes tamanhos de tela */
+
+/* Para telas menores que 1024px (tablets e telas pequenas) */
+@media (max-width: 1024px) {
+    header .logo {
+        font-size: 1.25rem; /* Reduz o tamanho da fonte do logo */
+    }
+    
+    nav ul {
+        flex-direction: column; /* Alinha os itens da navegação em coluna */
+    }
+    
+    nav ul li {
+        margin: 0.5rem 0; /* Espaçamento vertical entre os itens */
+    }
+}
+
+/* Para telas menores que 768px (dispositivos móveis) */
+@media (max-width: 768px) {
+    .main-content {
+        height: auto; /* Ajusta a altura para conteúdo variável */
+        padding: 5rem; /* Adiciona padding lateral */
+    }
+    
+    iframe {
+        height: 300px; /* Ajusta a altura do iframe para telas menores */
+    }
+}
+
+/* Para telas menores que 480px (dispositivos móveis muito pequenos) */
+@media (max-width: 480px) {
+    header .logo {
+        font-size: 1rem; /* Reduz ainda mais o tamanho da fonte do logo */
+    }
+    
+    a.button {
+        padding: 0.5rem; /* Reduz o padding do botão */
+        font-size: 0.875rem; /* Reduz o tamanho da fonte do botão */
+    }
+    
+    iframe {
+        height: 200px; /* Ajusta a altura do iframe para telas muito pequenas */
+    }
+}
+
+
+/* Estilos para o menu de hambúrguer */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+/* Linhas do botão de hambúrguer */
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 3px;
+    transition: 0.3s;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+        position: absolute;
+        right: 20px; /* Posicionado à direita */
+        top: 20px;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        right: 0; /* Alinhado à direita */
+        top: 60px;
+        width: 100%;
+        background-color: #1d258b79;
+        font-weight: bold;
+        border-top: 1px solid #0084ff;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-menu ul li {
+        text-align: left;
+        margin: 10px 0;
+    }
+
+    .nav-menu ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+    }
+}

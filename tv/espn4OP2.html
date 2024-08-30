@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análises Statys TV</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="shortcut icon" href="img/ANPNG.webp" type="image/x-icon">
+</head>
+
+<body>
+   <!-- Header com logo e navegação -->
+   <header>
+    <div class="container">
+        <div class="logo">
+            Análises Statys TV
+        </div>
+
+        <!-- Botão de hambúrguer para dispositivos móveis -->
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Menu de navegação -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<script>
+    // JavaScript para o menu de hambúrguer
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburgerMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+</script>
+
+    <!-- Container com o iframe e botão -->
+    <div class="main-content">
+        <iframe src="https://embedmax.site/tvl/espn4b.php" allow="encrypted-media" allowfullscreen="" frameborder="0"
+            scrolling="no"></iframe>
+        <a href="#" class="button">CLIQUE NA TELA PARA ASSISTIR</a>
+    </div>
+</body>
+
+</html>

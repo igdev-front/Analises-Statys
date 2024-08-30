@@ -1,0 +1,169 @@
+/* Estilo geral do body com fundo em degradê */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1e3a8a, #1d4ed8);
+    color: #ffffff;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+     background: linear-gradient(to right, #1e3a8a, #1d4ed8);
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra suave ao header */
+}
+
+/* Container do header */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo no header */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Estilo para a navegação */
+nav {
+    flex: 1; /* Permite que o nav ocupe o espaço restante */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo do nav */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o container principal */
+#entry-channels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px; /* Espaço entre os itens */
+    margin-top: 2rem; /* Margem superior para separar do header */
+}
+
+/* Estilo para cada canal */
+.channel {
+    background-color: rgba(0, 0, 0, 0.233);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.425);
+    padding: 15px;
+    width: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito de hover para os canais */
+.channel:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para as imagens */
+.channel img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
+
+/* Estilo para os títulos dos canais */
+.entry-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+/* Estilo para links */
+.channel a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* Estilos para o menu de hambúrguer */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+/* Linhas do botão de hambúrguer */
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 3px;
+    transition: 0.3s;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+        position: absolute;
+        right: 20px; /* Posicionado à direita */
+        top: 20px;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        right: 0; /* Alinhado à direita */
+        top: 60px;
+        width: 100%;
+        font-weight: bold;
+        background-color: #3c49fd79;
+        border-top: 1px solid #0084ff;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-menu ul li {
+        text-align: left;
+        margin: 10px 0;
+    }
+
+    .nav-menu ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+    }
+}
