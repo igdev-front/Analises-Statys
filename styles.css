@@ -71,7 +71,7 @@ header {
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.185);
+    background-color: #011438;
     list-style: none;
     padding: 10px;
     top: 30px;
