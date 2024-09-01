@@ -1,211 +1,299 @@
-/* Reset básico */
+/* Importação da fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reset de margens e paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins';
 }
 
-/* Background degradê */
+/* Estilos globais */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #011438, #003ca3);
-    color: #fff;
-    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    background: url('ANÁLISES\ \(1\).png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh; /* Garante que o body ocupe pelo menos a altura total da tela */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
-/* Estilos do header e navbar */
+/* Overlay de desfoque no fundo */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.144); /* Fundo escuro semitransparente */
+    z-index: -1;
+}
+
+/* Estilo do cabeçalho */
 header {
+    background: rgba(0, 0, 0, 0.171); /* Fundo escuro com transparência */
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo do header */
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Reduz o padding para deixar o header mais fino */
-    background: linear-gradient(to right, #011438, #003ca3); /* Degradê no fundo do header */
-    position: relative;
-    height: auto; /* Ajusta a altura automaticamente com base no padding */
+    backdrop-filter: blur(5px); /* Opcional: adiciona desfoque ao fundo do cabeçalho */
 }
 
+/* Estilo do conteúdo do cabeçalho */
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza logo e nav horizontalmente */
-    gap: 20px; /* Espaço entre logo e nav */
     width: 100%;
-    max-width: 1200px;
+    position: relative; /* Necessário para o posicionamento absoluto do botão de hambúrguer */
 }
 
 .logo {
-    flex-shrink: 0; /* Impede que a logo encolha */
+    flex-grow: 1; /* Faz a logo ocupar o espaço restante */
 }
 
 .logo img {
-    height: 60px; /* Define altura da logo */
-    margin-right: 250px;
+    height: 50px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute; /* Posiciona o botão de hambúrguer no lado direito */
+    right: 20px; /* Ajuste a distância do lado direito conforme necessário */
 }
 
 .navbar {
     display: flex;
-    align-items: center;
+    justify-content: flex-end; /* Alinha a lista de navegação à direita */
+    width: 100%;
 }
 
-.navbar .nav-list {
-    list-style: none;
+.nav-list {
     display: flex;
-    gap: 30px;
+    list-style: none;
 }
 
-.navbar .nav-list li {
-    position: relative;
+/* Estilo dos itens da navegação */
+.nav-list li {
+    margin: 0 15px;
 }
 
-.navbar .nav-list a {
+.nav-list a {
+    color: #ffffff;
     text-decoration: none;
-    color: #fff;
-    padding: 10px;
+    font-weight: 500;
+    padding: 2px 15px;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 5px;
 }
 
-/* Efeito de transição para o menu dropdown */
+.nav-list a:hover {
+    background-color: #2bff00;
+    color: #000000;
+    border-radius: 5px;
+}
+
+/* Estilo do menu suspenso */
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: #011438;
-    list-style: none;
+    background-color: rgba(0, 0, 0, 0.493);
     padding: 10px;
-    top: 30px;
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(-10px); /* Levemente deslocado para cima */
-    width: 245px;
+    list-style: none;
+    margin-top: 1px;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 .dropdown-menu li {
-    margin: 15px 0;
+    margin: 5px 0;
 }
 
 .dropdown-menu a {
-    color: #fff;
-    font-size: 13px;
-    text-align: center;
+    color: #ffffff;
 }
 
-/* Mostrar o menu dropdown com efeito */
-.navbar .nav-list .dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1; /* Visível */
-    transform: translateY(0); /* Reposiciona no lugar */
+.dropdown-menu a:hover {
+    color: #000000;
+    background-color: #2bff00;
+    border-radius: 3px;
 }
 
-/* Botão de menu para mobile */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* Estilos do main content */
+/* Estilos principais */
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    padding: 20px;
-    text-align: center; /* Centraliza o texto */
-    gap: 20px; /* Espaço entre o texto e a imagem */
+    text-align: center;
+    padding: 60px 20px;
+    flex: 1; /* Faz o main ocupar o espaço disponível antes do footer */
+    margin-bottom: 200px; /* Adiciona margem inferior para criar espaço para o footer */
+    animation: float 6s ease-in-out infinite; /* Adiciona a animação de flutuação */
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .content {
-    max-width: 60%; /* Define largura máxima do conteúdo */
-}
-
-.content h1, .content h2, .content p {
-    margin-bottom: 10px; /* Espaçamento entre os elementos de texto */
-}
-
-h1 {
-    font-size: 50px;
-}
-
-h2 {
-    font-weight: 500;
-}
-
-p {
-    font-weight: 300;
-}
-.content img {
-    max-width: 300px; /* Largura máxima da imagem */
-    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.185);
+    padding: 30px;
     border-radius: 10px;
+    backdrop-filter: blur(5px);
+    position: relative; /* Necessário para a animação da borda */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse as bordas */
 }
 
-/* Estilos do footer */
+/* Animação de rotação da borda */
+@keyframes rotateBorder {
+    0% {
+        border-color: rgb(51, 255, 0);
+    }
+    50% {
+        border-color: rgb(255, 255, 255);
+    }
+    100% {
+        border-color: rgb(43, 255, 0);
+    }
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    pointer-events: none; /* Garante que o pseudo-elemento não interfira na interação */
+    animation: rotateBorder 4s linear infinite;
+}
+
+/* Estilo do rodapé */
 footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
     text-align: center;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .navbar .nav-list {
+/* Media Queries para Responsividade */
+
+@media (max-width: 720px) {
+    .nav-list {
         flex-direction: column;
-        display: none;
+        align-items: center;
         background-color: rgba(0, 0, 0, 0.8);
         position: absolute;
         top: 60px;
         left: 0;
-        width: 100%;
+        right: 0;
+        display: none; /* Esconde o menu por padrão */
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        z-index: 101; /* Garante que o menu fique acima de outros elementos */
     }
 
-    .navbar .nav-list.active {
-        display: flex;
+    .nav-list.show {
+        display: flex; /* Exibe o menu quando a classe 'show' está presente */
     }
 
     .dropdown-menu {
-        position: static;
-        background-color: transparent;
-        opacity: 1;
-        transform: none;
-        transition: none;
+        background-color: rgba(60, 255, 0, 0.938);
+        position: static; /* Remove o posicionamento absoluto */
+        margin-top: 0; /* Remove a margem superior */
     }
 
     .dropdown-menu a {
-        color: #fff;
-        padding: 5px 10px;
-    }
-
-    .navbar .nav-list li {
-        width: 100%;
-        text-align: left;
+        align-items: center;
+        font-size: 13px;
+        text-align: center; /* Centraliza o texto dentro do link */
+        padding: 10px;
+        display: block; /* Faz o link ocupar a largura total do item */
+        width: 100%; /* Garante que o link ocupe a largura total do item */
     }
 
     .menu-toggle {
+        display: block; /* Mostra o botão de hambúrguer */
+    }
+
+    /* Ajusta o dropdown para dispositivos móveis */
+    .dropdown-menu.show {
         display: block;
-        position: absolute;
-        right: 20px;
     }
-
-    /* Ajusta layout para dispositivos móveis */
-    main {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .content {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .content img {
-        max-width: 100%;
-        margin: 0; /* Remove a margem esquerda */
-    }
+    /* Estilos para o dropdown em dispositivos móveis */
+.dropdown-menu {
+    max-height: 300px; /* Define uma altura máxima para o dropdown */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
 }
+
+/* Estilo do conteúdo do dropdown */
+.dropdown-menu li {
+    margin: 5px 0;
+}
+
+.dropdown-menu a {
+    color: #ffffff;
+    font-size: 13px;
+    text-align: center; /* Centraliza o texto dentro do link */
+    padding: 10px;
+    display: block; /* Faz o link ocupar a largura total do item */
+    width: 100%; /* Garante que o link ocupe a largura total do item */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+}
+
+/* Adiciona uma barra de rolagem estilizada (opcional) */
+.dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 5px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background-color: rgb(255, 255, 255);
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.61);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    position: relative; /* Necessário para a animação da borda */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse as bordas */
+}
+
+}
+
