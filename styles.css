@@ -12,7 +12,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
-    background: url('ANÁLISES\ \(1\).png') no-repeat center center fixed;
+    background: url('ANÁLISES (1).png') no-repeat center center fixed;
     background-size: cover;
     position: relative;
     min-height: 100vh; /* Garante que o body ocupe pelo menos a altura total da tela */
@@ -43,7 +43,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    backdrop-filter: blur(5px); /* Opcional: adiciona desfoque ao fundo do cabeçalho */
+    backdrop-filter: blur(5px); /* Adiciona desfoque ao fundo do cabeçalho */
 }
 
 /* Estilo do conteúdo do cabeçalho */
@@ -73,6 +73,7 @@ header {
     right: 20px; /* Ajuste a distância do lado direito conforme necessário */
 }
 
+/* Estilo da barra de navegação */
 .navbar {
     display: flex;
     justify-content: flex-end; /* Alinha a lista de navegação à direita */
@@ -99,38 +100,68 @@ header {
 }
 
 .nav-list a:hover {
-    background-color: #2bff00;
-    color: #000000;
-    border-radius: 5px;
+    background-color: #ffffff;
+    color: #007bff;
 }
 
 /* Estilo do menu suspenso */
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.493);
+    background-color: #ffffff; /* Fundo claro para contraste */
     padding: 10px;
     list-style: none;
-    margin-top: 1px;
-    border-radius: 5px;
+    margin-top: 3px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra mais sutil para profundidade */
+    z-index: 101; /* Garante que o menu fique acima de outros elementos */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
 }
 
+/* Exibe o menu ao passar o mouse sobre o dropdown */
 .dropdown:hover .dropdown-menu {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
+/* Estilo dos itens do menu suspenso */
 .dropdown-menu li {
-    margin: 5px 0;
+    margin: 8px 0;
 }
 
+/* Estilo dos links dentro do dropdown */
 .dropdown-menu a {
-    color: #ffffff;
+    color: #5c5c5c; /* Cor do texto */
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px 15px;
+    display: block;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
+/* Efeito de hover nos links */
 .dropdown-menu a:hover {
-    color: #000000;
-    background-color: #2bff00;
-    border-radius: 3px;
+    background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+    color: #007bff; /* Cor do texto ao passar o mouse */
+    transform: translateX(5px); /* Efeito de deslocamento ao passar o mouse */
+}
+
+/* Estilo da barra de rolagem do dropdown (opcional) */
+.dropdown-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
 }
 
 /* Estilos principais */
@@ -138,7 +169,6 @@ main {
     text-align: center;
     padding: 60px 20px;
     flex: 1; /* Faz o main ocupar o espaço disponível antes do footer */
-    margin-bottom: 200px; /* Adiciona margem inferior para criar espaço para o footer */
     animation: float 6s ease-in-out infinite; /* Adiciona a animação de flutuação */
 }
 
@@ -206,14 +236,13 @@ footer {
 }
 
 /* Media Queries para Responsividade */
-
 @media (max-width: 720px) {
     .nav-list {
         flex-direction: column;
         align-items: center;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: #0051ff;
         position: absolute;
-        top: 60px;
+        top: 78px;
         left: 0;
         right: 0;
         display: none; /* Esconde o menu por padrão */
@@ -226,74 +255,68 @@ footer {
         display: flex; /* Exibe o menu quando a classe 'show' está presente */
     }
 
-    .dropdown-menu {
-        background-color: rgba(60, 255, 0, 0.938);
-        position: static; /* Remove o posicionamento absoluto */
-        margin-top: 0; /* Remove a margem superior */
-    }
-
-    .dropdown-menu a {
-        align-items: center;
-        font-size: 13px;
-        text-align: center; /* Centraliza o texto dentro do link */
-        padding: 10px;
-        display: block; /* Faz o link ocupar a largura total do item */
-        width: 100%; /* Garante que o link ocupe a largura total do item */
-    }
-
     .menu-toggle {
         display: block; /* Mostra o botão de hambúrguer */
     }
 
     /* Ajusta o dropdown para dispositivos móveis */
-    .dropdown-menu.show {
-        display: block;
+    .dropdown-menu {
+        background-color: #ffffff; /* Fundo claro para contraste */
+        position: static; /* Remove o posicionamento absoluto */
+        margin-top: 10px; /* Remove a margem superior */
+        max-height: 300px; /* Define uma altura máxima para o dropdown */
+        overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+        border-radius: 8px; /* Bordas arredondadas */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidade */
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 0;
+        transform: translateY(-10px);
     }
-    /* Estilos para o dropdown em dispositivos móveis */
-.dropdown-menu {
-    max-height: 300px; /* Define uma altura máxima para o dropdown */
-    overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
-}
 
-/* Estilo do conteúdo do dropdown */
-.dropdown-menu li {
-    margin: 5px 0;
-}
+    .dropdown-menu.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-.dropdown-menu a {
-    color: #ffffff;
-    font-size: 13px;
-    text-align: center; /* Centraliza o texto dentro do link */
-    padding: 10px;
-    display: block; /* Faz o link ocupar a largura total do item */
-    width: 100%; /* Garante que o link ocupe a largura total do item */
-    box-sizing: border-box; /* Inclui padding e borda na largura total */
-}
+    /* Estilo do conteúdo do dropdown */
+    .dropdown-menu li {
+        margin: 5px 0;
+    }
 
-/* Adiciona uma barra de rolagem estilizada (opcional) */
-.dropdown-menu::-webkit-scrollbar {
-    width: 8px;
-}
+    .dropdown-menu a {
+        color: #333333; /* Cor do texto */
+        font-size: 14px;
+        text-align: center; /* Centraliza o texto dentro do link */
+        padding: 12px;
+        display: block; /* Faz o link ocupar a largura total do item */
+        width: 100%; /* Garante que o link ocupe a largura total do item */
+        box-sizing: border-box; /* Inclui padding e borda na largura total */
+        transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        border-radius: 8px; /* Bordas arredondadas */
+    }
 
-.dropdown-menu::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 5px;
-}
+    /* Efeito de hover nos links do dropdown */
+    .dropdown-menu a:hover {
+        background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+        color: #007bff; /* Cor do texto ao passar o mouse */
+        transform: translateX(5px); /* Efeito de deslocamento ao passar o mouse */
+    }
 
-.dropdown-menu::-webkit-scrollbar-track {
-    background-color: rgb(255, 255, 255);
-}
+    /* Adiciona uma barra de rolagem estilizada (opcional) */
+    .dropdown-menu::-webkit-scrollbar {
+        width: 8px;
+    }
 
-.content {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.61);
-    padding: 30px;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    position: relative; /* Necessário para a animação da borda */
-    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse as bordas */
-}
+    .dropdown-menu::-webkit-scrollbar-thumb {
+        background-color: #333;
+        border-radius: 5px;
+    }
 
-}
+    .dropdown-menu::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+    }
 
+    .content {
+        background-color: rgba(0, 0, 0, 0.61);
+    }
+}
